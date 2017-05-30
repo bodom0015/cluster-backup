@@ -22,7 +22,7 @@ $DEBUG ssh ${SSH_ARGS} ${SSH_TARGET} "mkdir -p ${TARGET_PATH}"
 $DEBUG tar czf - ${BACKUP_SRC} | $DEBUG ssh ${SSH_ARGS} ${SSH_TARGET} "cat - > ${TARGET_PATH}/${DATE}.glfs-state.tgz"
 
 # Dump etcd state
-$DEBUG /usr/local/bin/etcdumper dump http://${ETCD_HOST:-localhost}:${ETCD_PORT:-2379} --file /tmp/${DATE}-etcd-backup.json
+$DEBUG etcd-load dump --etcd=http://${ETCD_HOST:-localhost}:${ETCD_PORT:-2379} /tmp/${DATE}-etcd-backup.json
 $DEBUG scp ${SSH_ARGS} /tmp/${DATE}-etcd-backup.json ${SSH_TARGET}:${TARGET_PATH}/${DATE}-etcd-backup.json
 
 # Dump Kubernetes cluster state
