@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 #
-# Install wget/ssh/cron/vim/pip via apt, and etcdumper via pip
+# Install wget/ssh/cron/vim/nodejs/npm via apt
 # 
 RUN apt-get -qq update && \
     apt-get -qq install --no-install-recommends \
@@ -28,7 +28,7 @@ RUN npm install -g etcd-load
 #
 # Download kubectl binary
 #
-ARG K8S_VERSION="1.5.1"
+ARG K8S_VERSION="1.5.2"
 RUN wget --no-verbose http://storage.googleapis.com/kubernetes-release/release/v${K8S_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl && \
     chmod 555 /usr/local/bin/kubectl
 

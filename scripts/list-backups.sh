@@ -1,13 +1,17 @@
 #!/bin/bash
 [ $DEBUG ] && set -x
 
+if [ "${CLUSTER_ID}" == "" ];
+        echo "You must specify a CLUSTER_ID for the backup process"
+        exit 1;
+fi
+
 # XXX: Set this to "echo" to for a dry-run
 DEBUG=""
 
 # Grab date / cluster name
 DATE=$(date +%y-%m-%d.%H%M)
-IFS='-' read -ra HOST <<< "${HOSTNAME:-localhost}"
-TARGET_PATH=${BACKUP_DEST:-/ndsbackup}/${HOST[0]}
+TARGET_PATH=${BACKUP_DEST:-/ndsbackup}/${CLUSTER_ID}
 
 echo "Listing known backups for ${HOST[0]}:"
 

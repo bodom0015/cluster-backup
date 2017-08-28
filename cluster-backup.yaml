@@ -26,9 +26,9 @@ spec:
            - name: BACKUP_DEST
              value: /ndsbackup
            - name: BACKUP_HOST
-             value: 
+             value: 132.249.238.215
            - name: BACKUP_USER
-             value: 
+             value: centos
            - name: BACKUP_KEY
              value: "/etc/backup-key/ssh-privatekey"
           volumeMounts:
