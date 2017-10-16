@@ -2,6 +2,7 @@
 [ $DEBUG ] && set -x
 
 if [ "${CLUSTER_ID}" == "" ];
+then
         echo "You must specify a CLUSTER_ID for the backup process"
         exit 1;
 fi
