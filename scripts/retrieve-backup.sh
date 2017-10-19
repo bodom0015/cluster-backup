@@ -13,7 +13,7 @@ DEBUG=""
 # Grab date / cluster name
 TARGET_PATH=${BACKUP_DEST:-/ndsbackup}/${CLUSTER_ID}/$1
 
-echo "Retrieving backup $1 for ${HOST[0]}: ${DATE}"
+echo "Retrieving backup $1 for ${CLUSTER_ID}: ${DATE}"
 
 # Use the above to build our base commands
 SSH_ARGS="-i ${BACKUP_KEY:-backup.pem} -o StrictHostKeyChecking=no "
