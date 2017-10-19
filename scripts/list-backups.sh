@@ -14,7 +14,7 @@ DEBUG=""
 DATE=$(date +%y-%m-%d.%H%M)
 TARGET_PATH=${BACKUP_DEST:-/ndsbackup}/${CLUSTER_ID}
 
-echo "Listing known backups for ${HOST[0]}:"
+echo "Listing known backups for ${CLUSTER_ID}:"
 
 # Use the above to build our base commands
 SSH_ARGS="-i ${BACKUP_KEY:-backup.pem} -o StrictHostKeyChecking=no "
